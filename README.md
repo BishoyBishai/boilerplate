@@ -18,3 +18,4 @@ bun dev
 
 - [Next.js](https://nextjs.org/docs)
 - [Tailwind Css](https://tailwindcss.com/)
+- [Shadcn](https://ui.shadcn.com/) Re-usable components built using Radix UI and Tailwind CSS.

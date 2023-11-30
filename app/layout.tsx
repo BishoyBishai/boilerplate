@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Exo_2 } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const exo = Exo_2({ subsets: ["latin"], variable: "--font-exo" });
 
 export const metadata: Metadata = {
   title: "Boilerplate Application",
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn(exo.className)}>{children}</body>
     </html>
   );
 }
