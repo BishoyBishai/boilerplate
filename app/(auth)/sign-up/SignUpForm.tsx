@@ -26,7 +26,7 @@ export default function SignUpForm() {
   };
 
   return (
-    <div className="grid gap-2 w-full lg:max-w-md">
+    <div className="grid gap-2 w-full md:max-w-md">
       <form onSubmit={handleSubmit(handleSubmitSignUpForm)}>
         <InputForm
           label="Name"

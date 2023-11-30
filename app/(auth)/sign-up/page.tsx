@@ -8,7 +8,7 @@ import SignUpForm from "./SignUpForm";
 const page: FC = ({}) => {
   return (
     <>
-      <div className="container flex justify-center flex-col items-start pt-2 lg:px-0 h-full">
+      <div className="container flex justify-center flex-col items-start pt-2 lg:px-0 h-full padding-y">
         <div className="flex mx-auto w-full flex-col space-y-6">
           <div className="flex flex-col items-center space-y-2 text-center">
             <LogoIcon />
