@@ -1,10 +1,7 @@
 "use client";
 
-import InputForm from "@/components/form/InputForm";
+import { InputForm, TextareaForm } from "@/components/form";
 import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/Label";
-import { cn } from "@/lib/utils";
 import { TSignUpForm, signUpValidationSchema } from "@/lib/validators/sign-up";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -47,7 +44,11 @@ export default function SignUpForm() {
           register={register("password")}
           error={errors.password}
         />
-        <InputForm label="Description" register={register("description")} />
+        <TextareaForm
+          label="Description"
+          register={register("description")}
+          error={errors.description}
+        />
 
         <Button className="w-full" disabled={!isValid}>
           Sign-up
