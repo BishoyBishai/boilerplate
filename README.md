@@ -19,3 +19,6 @@ bun dev
 - [Next.js](https://nextjs.org/docs)
 - [Tailwind Css](https://tailwindcss.com/)
 - [Shadcn](https://ui.shadcn.com/) Re-usable components built using Radix UI and Tailwind CSS.
+- [React Hook Form](https://www.react-hook-form.com/)
+- [Zod](https://zod.dev/) TypeScript-first schema validation with static type inference
+- [Sonner](https://sonner.emilkowal.ski/) An opinionated toast component for React.
