@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import ReactQueryProviders from "@/providers/ReactQuery";
 
 /**
  * Adding google fonts and give each variable name to attach it into tailwind config
@@ -39,11 +40,13 @@ export default function RootLayout({
           handlee.variable
         )}
       >
-        <main className="relative flex flex-col min-h-screen max-container">
-          <Navbar />
-          <div className="flex-grow flex-1">{children}</div>
-          <Footer />
-        </main>
+        <ReactQueryProviders>
+          <main className="relative flex flex-col min-h-screen max-container">
+            <Navbar />
+            <div className="flex-grow flex-1">{children}</div>
+            <Footer />
+          </main>
+        </ReactQueryProviders>
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import InputForm from "@/components/form/InputForm";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
@@ -30,52 +31,24 @@ export default function SignUpForm() {
   return (
     <div className="grid gap-2 w-full lg:max-w-md">
       <form onSubmit={handleSubmit(handleSubmitSignUpForm)}>
-        <div className="grid gap-2 py-2">
-          <Label
-            className={cn("text-left font-exo", {
-              "text-red-500": errors.email,
-            })}
-            htmlFor="email"
-          >
-            Email
-          </Label>
-          <Input
-            {...register("email")}
-            id="email"
-            className={cn("font-handlee", {
-              "border border-red-500": errors.email,
-              "focus-visible:ring-red-500": errors.email,
-            })}
-            placeholder="example@email.com"
-          />
-          <div className="text-red-500 text-xs text-left">
-            {errors.email?.message}
-          </div>
-        </div>
-        <div className="grid gap-1 py-2">
-          <Label
-            className={cn("text-left font-exo", {
-              "text-red-500": errors.password,
-            })}
-            htmlFor="password"
-          >
-            Password
-          </Label>
-          <Input
-            {...register("password")}
-            className={cn("font-handlee", {
-              "border border-red-500": errors.password,
-              "focus-visible:ring-red-500": errors.password,
-            })}
-            name="password"
-            type="password"
-            id="password"
-            placeholder="*************"
-          />
-          <div className="text-red-500 text-xs text-left">
-            {errors.password?.message}
-          </div>
-        </div>
+        <InputForm
+          label="Name"
+          register={register("name")}
+          error={errors.name}
+        />
+        <InputForm
+          label="Email"
+          register={register("email")}
+          error={errors.email}
+        />
+        <InputForm
+          label="Password"
+          type="password"
+          register={register("password")}
+          error={errors.password}
+        />
+        <InputForm label="Description" register={register("description")} />
+
         <Button className="w-full" disabled={!isValid}>
           Sign-up
         </Button>

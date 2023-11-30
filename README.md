@@ -22,3 +22,4 @@ bun dev
 - [React Hook Form](https://www.react-hook-form.com/)
 - [Zod](https://zod.dev/) TypeScript-first schema validation with static type inference
 - [Sonner](https://sonner.emilkowal.ski/) An opinionated toast component for React.
+- [react-query](https://tanstack.com/query/v4/docs/react/overview)
