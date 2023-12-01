@@ -1,9 +1,11 @@
 "use client";
 
+import GoogleIcon from "@/assets/icons/GoogleIcon";
 import { InputForm, TextareaForm } from "@/components/form";
 import { Button } from "@/components/ui/Button";
 import { TSignUpForm, signUpValidationSchema } from "@/lib/validators/sign-up";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 
 export default function SignUpForm() {
@@ -23,6 +25,13 @@ export default function SignUpForm() {
     console.log("====================================");
     console.log({ values });
     console.log("====================================");
+  };
+
+  const handleGoogleSubmit = async () => {
+    await signIn("google", {
+      redirect: true,
+      callbackUrl: "/",
+    });
   };
 
   return (
@@ -54,6 +63,15 @@ export default function SignUpForm() {
           Sign-up
         </Button>
       </form>
+      <Button
+        type="button"
+        className="flex gap-4"
+        onClick={handleGoogleSubmit}
+        variant="outline"
+      >
+        <GoogleIcon />
+        <p>Sign up with Google</p>
+      </Button>
     </div>
   );
 }

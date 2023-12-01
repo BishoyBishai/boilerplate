@@ -1,13 +1,14 @@
 "use client";
-
+import GoogleIcon from "@/assets/icons/GoogleIcon";
 import { InputForm } from "@/components/form";
 import { Button } from "@/components/ui/Button";
 import { TLoginForm, loginValidationSchema } from "@/lib/validators/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
 
 export default function LoginForm() {
-  /**
+  /*
    * Register LoginForm using react-hook-form
    */
   const {
@@ -23,6 +24,13 @@ export default function LoginForm() {
     console.log("====================================");
     console.log({ values });
     console.log("====================================");
+  };
+
+  const handleGoogleSubmit = async () => {
+    await signIn("google", {
+      redirect: true,
+      callbackUrl: "/",
+    });
   };
 
   return (
@@ -44,6 +52,15 @@ export default function LoginForm() {
           Login
         </Button>
       </form>
+      <Button
+        type="button"
+        className="flex gap-4"
+        onClick={handleGoogleSubmit}
+        variant="outline"
+      >
+        <GoogleIcon />
+        <p>Sign in with Google</p>
+      </Button>
     </div>
   );
 }

@@ -14,6 +14,15 @@ pnpm dev
 bun dev
 ```
 
+## Environment variables
+
+```
+# google application id for authenticate by google
+GOOGLE_ID=
+# google application secret key for authenticate by google
+GOOGLE_SECRET=
+```
+
 ## Tools
 
 - [Next.js](https://nextjs.org/docs)
@@ -23,3 +32,4 @@ bun dev
 - [Zod](https://zod.dev/) TypeScript-first schema validation with static type inference
 - [Sonner](https://sonner.emilkowal.ski/) An opinionated toast component for React.
 - [react-query](https://tanstack.com/query/v4/docs/react/overview)
+- [Next Auth](https://next-auth.js.org/) is a complete open-source authentication solution for Next.js applications
