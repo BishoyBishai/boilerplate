@@ -33,3 +33,4 @@ GOOGLE_SECRET=
 - [Sonner](https://sonner.emilkowal.ski/) An opinionated toast component for React.
 - [react-query](https://tanstack.com/query/v4/docs/react/overview)
 - [Next Auth](https://next-auth.js.org/) is a complete open-source authentication solution for Next.js applications
+- [Docker](https://www.docker.com/)
