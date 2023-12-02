@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  next:
+    build: .
+    container_name: boilerplate_container
+    restart: always
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
