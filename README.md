@@ -34,3 +34,4 @@ GOOGLE_SECRET=
 - [react-query](https://tanstack.com/query/v4/docs/react/overview)
 - [Next Auth](https://next-auth.js.org/) is a complete open-source authentication solution for Next.js applications
 - [Docker](https://www.docker.com/)
+- [Prisma](https://www.prisma.io/)
