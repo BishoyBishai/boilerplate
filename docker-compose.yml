@@ -1,12 +1,28 @@
 version: "3.8"
 services:
-  next:
-    build: .
-    container_name: boilerplate_container
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    container_name: mongodb_replica_container
     restart: always
+    env_file:
+      - .env
+    ports:
+      - 27017:27017
+
+  boilerplate:
+    build: .
+    container_name: boilerplate
+    restart: always
+    links:
+      - db
+    depends_on:
+      - db
     environment:
       - NODE_ENV=development
     ports:
       - 3000:3000
+      - 5555:5555
     volumes:
       - ./:/app

@@ -1,3 +1,5 @@
 {
-  "cSpell.words": ["handlee", "signout"]
+  "cSpell.words": ["handlee", "signout"],
+  "WillLuke.nextjs.addTypesOnSave": true,
+  "WillLuke.nextjs.hasPrompted": true
 }

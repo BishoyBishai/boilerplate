@@ -6,10 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "npx prisma generate",
+    "push": "npx prisma db push",
+    "studio": "docker exec -itd boilerplate prisma studio",
+    "db:push": "docker exec -it boilerplate prisma db push",
+    "format": "npx prisma format && prettier . --write",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
+    "@prisma/client": "^5.6.0",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
@@ -19,6 +26,7 @@
     "lucide-react": "^0.294.0",
     "next": "14.0.3",
     "next-auth": "^4.24.5",
+    "prisma": "^5.6.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
