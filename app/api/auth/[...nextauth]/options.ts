@@ -7,6 +7,7 @@
  */
 import { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { getAppUser } from "./utils";
 
 export const options: AuthOptions = {
   providers: [
@@ -23,6 +24,7 @@ export const options: AuthOptions = {
   ],
   callbacks: {
     async jwt({ token }) {
+      getAppUser(token);
       return token;
     },
     async session({ session }) {
