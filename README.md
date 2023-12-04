@@ -5,13 +5,7 @@ boilerplate application to have most common code snippet I use for react/next ap
 ## Getting Started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run app:up
 ```
 
 ## Environment variables
@@ -21,6 +15,19 @@ bun dev
 GOOGLE_ID=
 # google application secret key for authenticate by google
 GOOGLE_SECRET=
+
+# Next auth
+NEXTAUTH_SECRET=
+NEXTAUTH_URL=
+
+# Database
+MONGO_INITDB_ROOT_USERNAME=
+MONGO_INITDB_ROOT_PASSWORD=
+MONGO_REPLICA_HOST=
+MONGO_REPLICA_PORT=
+DATABASE_URL=
+
+
 ```
 
 ## Tools

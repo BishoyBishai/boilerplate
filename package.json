@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "app:up": "docker-compose up",
+    "app:down": "docker-compose down",
     "generate": "npx prisma generate",
     "push": "npx prisma db push",
     "prisma:studio": "docker exec -itd boilerplate prisma studio",
