@@ -3,9 +3,11 @@
 import GoogleIcon from "@/assets/icons/GoogleIcon";
 import { InputForm, TextareaForm } from "@/components/form";
 import { Button } from "@/components/ui/Button";
+import { useToast } from "@/hooks/useToast";
 import { TSignUpForm, signUpValidationSchema } from "@/lib/validators/sign-up";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 export default function SignUpForm() {
@@ -21,10 +23,31 @@ export default function SignUpForm() {
     mode: "onBlur",
   });
 
-  const handleSubmitSignUpForm = (values: TSignUpForm) => {
-    console.log("====================================");
-    console.log({ values });
-    console.log("====================================");
+  const router = useRouter();
+
+  const { toast } = useToast();
+
+  const handleSubmitSignUpForm = async (values: TSignUpForm) => {
+    // make registration request
+    const res = await fetch("/api/register", {
+      method: "POST",
+      body: JSON.stringify(values),
+    });
+    // handling the response
+    if (res.ok) {
+      router.push("/login");
+      toast({
+        variant: "default",
+        title: "Success",
+        description:
+          "Your account has been created successfully, Try to login now",
+      });
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Failed",
+      });
+    }
   };
 
   const handleGoogleSubmit = async () => {

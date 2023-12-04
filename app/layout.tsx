@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import ReactQueryProviders from "@/providers/ReactQuery";
+import { Toaster } from "@/components/ui/toaster";
 
 /**
  * Adding google fonts and give each variable name to attach it into tailwind config
@@ -44,6 +45,7 @@ export default function RootLayout({
           <main className="relative flex flex-col min-h-screen max-container">
             <Navbar />
             <div className="flex-grow flex-1">{children}</div>
+            <Toaster />
             <Footer />
           </main>
         </ReactQueryProviders>

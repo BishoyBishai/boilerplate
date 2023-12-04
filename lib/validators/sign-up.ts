@@ -12,7 +12,10 @@ export const signUpValidationSchema = z.object({
   password: z
     .string()
     .min(5, "Password has to be at least 5 characters length"),
-  description: z.string().max(100, "Maximum allowed characters is 100"),
+  description: z
+    .string()
+    .max(100, "Maximum allowed characters is 100")
+    .optional(),
 });
 
 /**

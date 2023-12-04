@@ -6,6 +6,8 @@ import { TLoginForm, loginValidationSchema } from "@/lib/validators/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
+import { useToast } from "@/hooks/useToast";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   /*
@@ -20,10 +22,24 @@ export default function LoginForm() {
     mode: "onBlur",
   });
 
-  const handleSubmitLoginForm = (values: TLoginForm) => {
-    console.log("====================================");
-    console.log({ values });
-    console.log("====================================");
+  const { toast } = useToast();
+  const router = useRouter();
+
+  const handleSubmitLoginForm = async (values: TLoginForm) => {
+    const res = await signIn("credentials", {
+      ...values,
+      redirect: false,
+    });
+    if (res && res.ok) {
+      // valid login
+      router.replace("/");
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Login Failed",
+        description: "Please check your credentials and try again",
+      });
+    }
   };
 
   const handleGoogleSubmit = async () => {
