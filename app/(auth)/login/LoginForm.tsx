@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { useToast } from "@/hooks/useToast";
 import { useRouter } from "next/navigation";
+import Separator from "@/components/shared/Separator";
 
 export default function LoginForm() {
   /*
@@ -68,6 +69,7 @@ export default function LoginForm() {
           Login
         </Button>
       </form>
+      <Separator className="my-2" withText="Or continue with" />
       <Button
         type="button"
         className="flex gap-4"
