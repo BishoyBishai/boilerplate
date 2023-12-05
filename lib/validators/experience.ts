@@ -5,13 +5,15 @@ import { z } from "zod";
  */
 export const experienceValidationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
-  workFrom: z.string().min(1, "Work starting data is required"),
-  workTo: z.string().optional(),
-  tasks: z.string().optional(),
-  location: z.string().optional(),
+  workFrom: z.string().min(1, "Work starting data is required").nullable(),
+  workTo: z.string().nullable(),
+  tasks: z.string().nullable(),
+  location: z.string().nullable(),
 });
 
 /**
  * Extract experience inputs type from z schema
  */
 export type TExperienceForm = z.infer<typeof experienceValidationSchema>;
+
+export type TExperience = TExperienceForm & { id: string; userId: string };

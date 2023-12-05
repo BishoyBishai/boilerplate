@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { FC } from "react";
 
-interface IFooterProps {}
-
-const Footer: FC<IFooterProps> = ({}) => {
+const Footer: FC = () => {
   return (
     <footer className="padding-x bg-primary text-white">
       <div className="py-10 md:flex md:items-center md:justify-between">
