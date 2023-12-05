@@ -1,6 +1,5 @@
-import { FlaskConicalOff, ListPlus } from "lucide-react";
-import { Button } from "../ui/Button";
-import Link from "next/link";
+import { FlaskConicalOff } from "lucide-react";
+import AddNewExperienceButton from "./AddNewExperienceButton";
 
 export default function EmptyExperiences() {
   return (
@@ -11,10 +10,7 @@ export default function EmptyExperiences() {
         <p className="text-lg text-muted-foreground mb-4">
           You did not share with us your awesome experiences yet.
         </p>
-        <Button>
-          <ListPlus className="mr-2 h-4 w-4" />
-          <Link href="/resume/create">Add Experiences</Link>
-        </Button>
+        <AddNewExperienceButton />
       </div>
     </div>
   );

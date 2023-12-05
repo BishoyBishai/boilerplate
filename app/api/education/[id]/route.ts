@@ -4,7 +4,7 @@ import { educationValidationSchema } from "@/lib/validators/education";
 import { paramValidationSchema } from "@/lib/validators/request";
 import { NextResponse } from "next/server";
 
-export async function PUT(request: Request, { param }: any) {
+export async function PUT(request: Request, { params }: any) {
   try {
     // get education object from request body
     const body = await request.json();
@@ -15,7 +15,7 @@ export async function PUT(request: Request, { param }: any) {
       return NextResponse.json(parsedBody.error, { status: 400 });
     }
     // validate the param data
-    const parsedParams = paramValidationSchema.safeParse(param);
+    const parsedParams = paramValidationSchema.safeParse(params);
 
     // when param object doesn't have id property return bad request
     if (!parsedParams.success) {
@@ -47,10 +47,10 @@ export async function PUT(request: Request, { param }: any) {
   }
 }
 
-export async function DELETE(_request: Request, { param }: any) {
+export async function DELETE(_request: Request, { params }: any) {
   try {
     // validate the param data
-    const parsedParams = paramValidationSchema.safeParse(param);
+    const parsedParams = paramValidationSchema.safeParse(params);
 
     // when param object doesn't have id property return bad request
     if (!parsedParams.success) {

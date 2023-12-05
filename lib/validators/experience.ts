@@ -5,10 +5,11 @@ import { z } from "zod";
  */
 export const experienceValidationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
-  workFrom: z.string().min(1, "Work starting data is required").nullable(),
-  workTo: z.string().nullable(),
-  tasks: z.string().nullable(),
-  location: z.string().nullable(),
+  title: z.string().min(1, "Title is required"),
+  workFrom: z.string().nullable().optional(),
+  workTo: z.string().nullable().optional(),
+  tasks: z.string().nullable().optional(),
+  location: z.string().nullable().optional(),
 });
 
 /**

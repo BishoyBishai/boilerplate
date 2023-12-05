@@ -1,5 +1,8 @@
-import EmptyExperiences from "@/components/resume/EmptyExperiences";
-import ExperiencesList from "@/components/resume/ExperiencesList";
+import {
+  ExperiencesList,
+  EmptyExperiences,
+  ExperienceModal,
+} from "@/components/resume/experiences";
 
 import { db } from "@/db";
 import { getCurrentUser } from "@/lib/utils/getCurrentUser";
@@ -14,17 +17,21 @@ const getUserExperience = async () => {
 
 async function Resume() {
   const userExperiences = await getUserExperience();
-  if (userExperiences.length === 0) {
-    return <EmptyExperiences />;
-  } else {
-    return (
-      <div className="flex justify-between w-full">
-        <div className="md:w-6/12">
-          <ExperiencesList experiences={userExperiences} />
+
+  return (
+    <>
+      {userExperiences.length === 0 ? (
+        <EmptyExperiences />
+      ) : (
+        <div className="flex justify-between w-full">
+          <div className="lg:w-6/12">
+            <ExperiencesList experiences={userExperiences} />
+          </div>
         </div>
-      </div>
-    );
-  }
+      )}
+      <ExperienceModal />
+    </>
+  );
 }
 
 export default Resume;

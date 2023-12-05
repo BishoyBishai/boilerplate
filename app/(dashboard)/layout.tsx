@@ -1,6 +1,7 @@
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import UserNav from "@/components/shared/UserNav";
+import { ModalProvider } from "@/hooks/useModal";
 
 export default function DashboardLayout({
   children,
@@ -15,7 +16,9 @@ export default function DashboardLayout({
             <UserNav />
           </div>
         </Navbar>
-        <div className="flex-grow flex-1 flex">{children}</div>
+        <ModalProvider>
+          <div className="flex-grow flex-1 flex">{children}</div>
+        </ModalProvider>
         <Footer />
       </main>
     </section>

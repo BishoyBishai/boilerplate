@@ -6,7 +6,6 @@
 import { FC, InputHTMLAttributes } from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { Label } from "../ui/Label";
-import { Input } from "../ui/Input";
 import { cn } from "@/lib/utils";
 import { Textarea } from "../ui/textarea";
 
@@ -35,7 +34,7 @@ const TextareaForm: FC<ITextareaFormProps> = ({
         id={register.name}
         {...register}
         {...textareaProps}
-        className={cn("ont-handlee", {
+        className={cn("ont-handlee h-[200px]", {
           "border border-red-500 focus-visible:ring-red-500": error,
         })}
       />

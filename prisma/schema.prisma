@@ -25,6 +25,7 @@ model User {
 model Experience {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   companyName String
+  title String @default("No Title Available")
   workFrom    String?
   workTo      String?
   tasks       String?

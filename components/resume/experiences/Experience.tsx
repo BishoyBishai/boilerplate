@@ -9,7 +9,7 @@ interface IExperienceProps {
 
 const Experience: FC<IExperienceProps> = ({ experience }) => {
   return (
-    <div className="flex items-start justify-between gap-2">
+    <div className="flex items-start justify-between py-4 gap-2">
       <Label className="flex flex-col flex-1 w-full space-y-1">
         {/* Company Header */}
         <div className="flex w-full justify-between items-end">
@@ -32,19 +32,21 @@ const Experience: FC<IExperienceProps> = ({ experience }) => {
         </div>
         {/* Task speared by dots */}
         {/* TODO:// separate it by <br/>  */}
-        {experience.tasks?.split(".").map((task, taskKey) => {
-          return (
-            <span
-              key={taskKey}
-              className="font-normal leading-snug text-muted-foreground py-1"
-            >
-              {task}
-            </span>
-          );
-        })}
+        <div className="pt-2">
+          {experience.tasks?.split(".").map((task, taskKey) => {
+            return (
+              <div
+                key={taskKey}
+                className="font-normal leading-snug text-muted-foreground py-1"
+              >
+                {task}
+              </div>
+            );
+          })}
+        </div>
       </Label>
       {/* Action */}
-      <ExperienceActions />
+      <ExperienceActions experience={experience} />
     </div>
   );
 };
