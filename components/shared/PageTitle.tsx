@@ -28,7 +28,7 @@ const PageTitle: FC<IPageTitleProps> = ({
         <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
         {subTitle && (
           <h3 className="max-w-[750px] text-lg text-muted-foreground sm:text-xl max-md:text-center">
-            Here you can manage your notes, and start your amazing journey
+            {subTitle}
           </h3>
         )}
       </div>

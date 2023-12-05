@@ -4,13 +4,13 @@ import { FilePlus } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="space-y-4 p-8 pt-6">
+    <div className="space-y-4 p-8 pt-6 w-full">
       <PageTitle
-        title="Dashboard"
-        subTitle="Here you can manage your notes, and start your amazing journey"
+        title="Job Dashboard"
+        subTitle="Here you can manage your job application, and create professional cover letter"
         withAction={
           <Button>
-            <FilePlus className="mr-2 h-4 w-4" /> Create Note
+            <FilePlus className="mr-2 h-4 w-4" /> Create Cover letter
           </Button>
         }
       />

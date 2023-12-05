@@ -6,11 +6,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuItem,
+  DropdownMenuGroup,
 } from "../ui/DropdownMenu";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/Avatar";
 import LogoutButton from "./LogoutButton";
 import { getServerSession } from "next-auth";
 import { extractInitials } from "@/lib/utils/extractInitials";
+import Link from "next/link";
 
 export default async function UserNav() {
   const session = await getServerSession();
@@ -41,7 +43,15 @@ export default async function UserNav() {
             </p>
           </div>
         </DropdownMenuLabel>
-
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <Link href="/">Home</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link href="/resume">My Resume</Link>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <LogoutButton />

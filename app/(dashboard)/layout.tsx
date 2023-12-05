@@ -15,7 +15,7 @@ export default function DashboardLayout({
             <UserNav />
           </div>
         </Navbar>
-        <div className="flex-grow flex-1">{children}</div>
+        <div className="flex-grow flex-1 flex">{children}</div>
         <Footer />
       </main>
     </section>

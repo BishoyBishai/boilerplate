@@ -41,6 +41,9 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ data: user });
   } catch (err) {
+    console.log("====================================");
+    console.log("Register > Post: ", err);
+    console.log("====================================");
     throw err;
   }
 }
