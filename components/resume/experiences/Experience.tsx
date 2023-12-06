@@ -12,7 +12,7 @@ const Experience: FC<IExperienceProps> = ({ experience }) => {
     <div className="flex items-start justify-between py-4 gap-2">
       <Label className="flex flex-col flex-1 w-full space-y-1">
         {/* Company Header */}
-        <div className="flex w-full justify-between items-end">
+        <div className="flex w-full justify-between items-start">
           {/* Company Name on left side */}
           <div className="flex flex-col gap-2">
             <div className="capitalize text-primary">

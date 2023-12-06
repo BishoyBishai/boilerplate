@@ -1,3 +1,4 @@
+import { EducationModal, EducationsList } from "@/components/resume/educations";
 import {
   ExperiencesList,
   EmptyExperiences,
@@ -7,16 +8,24 @@ import {
 import { db } from "@/db";
 import { getCurrentUser } from "@/lib/utils/getCurrentUser";
 
-const getUserExperience = async () => {
-  const currentUser = await getCurrentUser();
+const getUserExperience = async (userId: string) => {
   const userExperiences = await db.experience.findMany({
-    where: { userId: currentUser?.id },
+    where: { userId },
   });
   return userExperiences;
 };
+const getUserEducation = async (userId: string) => {
+  const userEducations = await db.education.findMany({
+    where: { userId },
+  });
+  return userEducations;
+};
 
 async function Resume() {
-  const userExperiences = await getUserExperience();
+  const currentUser = await getCurrentUser();
+
+  const userExperiences = await getUserExperience(currentUser?.id!);
+  const userEducations = await getUserEducation(currentUser?.id!);
 
   return (
     <>
@@ -26,10 +35,13 @@ async function Resume() {
         <div className="flex justify-between w-full">
           <div className="w-full lg:w-6/12">
             <ExperiencesList experiences={userExperiences} />
+            <EducationsList educations={userEducations} />
           </div>
         </div>
       )}
+
       <ExperienceModal />
+      <EducationModal />
     </>
   );
 }

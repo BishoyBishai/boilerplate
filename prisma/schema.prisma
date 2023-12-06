@@ -39,7 +39,7 @@ model Education {
   instituteName String
   studyFrom     String?
   studyTo       String?
-  subject         String?
+  subject         String
   location      String?
   userId        String  @db.ObjectId
   user          User    @relation(fields: [userId], references: [id])
