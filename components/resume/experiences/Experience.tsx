@@ -14,26 +14,32 @@ const Experience: FC<IExperienceProps> = ({ experience }) => {
         {/* Company Header */}
         <div className="flex w-full justify-between items-end">
           {/* Company Name on left side */}
-          <span className="capitalize">{experience.companyName}</span>
+          <div className="flex flex-col gap-2">
+            <div className="capitalize text-primary">
+              {experience.companyName}
+            </div>
+            <div className="capitalize text-lg">{experience.title}</div>
+          </div>
 
           {/* Company Location and the working dates on the right side */}
           <div className="capitalize text-muted-foreground text-right space-y-2">
-            <span>{experience.location}</span>
-            <div>
-              <span className="capitalize text-muted-foreground">
-                {experience.workFrom}
-              </span>
-              -
-              <span className="capitalize text-muted-foreground">
-                {experience.workTo}
-              </span>
-            </div>
+            {experience.location && <span>{experience.location}</span>}
+            {experience.workFrom && (
+              <div>
+                <span className="capitalize text-muted-foreground">
+                  {experience.workFrom}
+                </span>
+                -
+                <span className="capitalize text-muted-foreground">
+                  {experience.workTo || "Present"}
+                </span>
+              </div>
+            )}
           </div>
         </div>
         {/* Task speared by dots */}
-        {/* TODO:// separate it by <br/>  */}
         <div className="pt-2">
-          {experience.tasks?.split(".").map((task, taskKey) => {
+          {experience.tasks?.split("\n").map((task, taskKey) => {
             return (
               <div
                 key={taskKey}

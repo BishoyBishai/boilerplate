@@ -24,7 +24,7 @@ async function Resume() {
         <EmptyExperiences />
       ) : (
         <div className="flex justify-between w-full">
-          <div className="lg:w-6/12">
+          <div className="w-full lg:w-6/12">
             <ExperiencesList experiences={userExperiences} />
           </div>
         </div>

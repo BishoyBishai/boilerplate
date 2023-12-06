@@ -10,7 +10,7 @@ export default function AddNewExperienceButton() {
     openModal();
   };
   return (
-    <Button onClick={handleOpenCreateNewExperienceModal}>
+    <Button variant="outline" onClick={handleOpenCreateNewExperienceModal}>
       <ListPlus className="mr-2 h-4 w-4" />
       Add more experience
     </Button>

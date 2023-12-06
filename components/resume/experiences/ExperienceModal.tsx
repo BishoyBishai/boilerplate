@@ -8,6 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/Dialog";
 import ExperienceForm from "./ExperienceForm";
+import { FORM_TYPE } from "@/models/forms";
 
 export const EXPERIENCE_MODAL = "create and update experience modal";
 
@@ -31,8 +32,8 @@ const ExperienceModal: FC = () => {
         </DialogHeader>
         <div className="flex items-center space-x-2">
           <ExperienceForm
-            experience={payload}
-            formType={payload ? "update" : "create"}
+            data={payload}
+            type={payload ? FORM_TYPE.update : FORM_TYPE.create}
           />
         </div>
       </DialogContent>
