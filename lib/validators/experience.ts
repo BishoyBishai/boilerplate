@@ -6,6 +6,7 @@ import { z } from "zod";
 export const experienceValidationSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
   title: z.string().min(1, "Title is required"),
+  tools: z.string().nullable().optional(),
   workFrom: z.string().nullable().optional(),
   workTo: z.string().nullable().optional(),
   tasks: z.string().nullable().optional(),

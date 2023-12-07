@@ -1,6 +1,7 @@
 import { TServerAction } from "@/models/actions";
 import { ZodSchema } from "zod";
 import { flattenZodError } from "./flattenZodError";
+import { handleServerActionError } from "./handleServerActionError";
 
 export const createServerAction = async <T>(
   data: string,
@@ -20,6 +21,6 @@ export const createServerAction = async <T>(
     // run the action
     return await action(parsedData.data);
   } catch (err) {
-    throw err;
+    return handleServerActionError(err);
   }
 };

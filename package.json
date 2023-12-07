@@ -12,6 +12,7 @@
     "generate": "npx prisma generate",
     "push": "npx prisma db push",
     "prisma:studio": "docker exec -itd boilerplate prisma studio",
+    "prisma:seed": "docker exec -it boilerplate node ./prisma/seed.ts",
     "prisma:push": "docker exec -it boilerplate prisma db push",
     "prisma:generate": "docker exec -it boilerplate prisma generate",
     "format": "npx prisma format && prettier . --write",

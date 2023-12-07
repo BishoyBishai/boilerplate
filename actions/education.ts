@@ -1,6 +1,7 @@
 "use server";
 import { db } from "@/db";
 import { createServerAction } from "@/lib/utils/createServerAction";
+import { handleServerActionError } from "@/lib/utils/handleServerActionError";
 import { getCurrentUser } from "@/lib/utils/getCurrentUser";
 import {
   TEducation,
@@ -51,6 +52,6 @@ export const deleteEducationAction = async (
     revalidatePath("/resume");
     return { ok: true, data: createdEducation };
   } catch (err) {
-    throw err;
+    return handleServerActionError(err);
   }
 };

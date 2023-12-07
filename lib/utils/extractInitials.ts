@@ -1,4 +1,7 @@
 export const extractInitials = (name: string) => {
+  if (!name) {
+    return "U";
+  }
   // Split the full name into an array of words
   const words = name.split(" ");
 

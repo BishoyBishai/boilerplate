@@ -2,6 +2,7 @@
 import { db } from "@/db";
 import { createServerAction } from "@/lib/utils/createServerAction";
 import { getCurrentUser } from "@/lib/utils/getCurrentUser";
+import { handleServerActionError } from "@/lib/utils/handleServerActionError";
 import {
   TExperience,
   experienceValidationSchema,
@@ -51,6 +52,6 @@ export const deleteExperienceAction = async (
     revalidatePath("/resume");
     return { ok: true, data: createdExperience };
   } catch (err) {
-    throw err;
+    return handleServerActionError(err);
   }
 };

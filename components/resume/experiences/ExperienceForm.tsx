@@ -95,7 +95,10 @@ export default function ExperienceForm({
             />
           </div>
         </div>
-
+        <InputForm
+          label="Main tools or technologies"
+          register={register("tools")}
+        />
         <TextareaForm label="Tasks" register={register("tasks")} />
         <div className="flex gap-2 pt-4 flex-row-reverse">
           <Button disabled={!isValid || isSubmitting}>
