@@ -16,6 +16,7 @@ import {
 } from "@/actions/experience";
 import { useModal } from "@/hooks/useModal";
 import { EXPERIENCE_MODAL } from "./ExperienceModal";
+import { Loader2 } from "lucide-react";
 
 export default function ExperienceForm({
   type,
@@ -27,7 +28,7 @@ export default function ExperienceForm({
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { isValid, errors, isSubmitting },
   } = useForm<TExperience>({
     resolver: zodResolver(experienceValidationSchema),
     mode: "onBlur",
@@ -97,8 +98,9 @@ export default function ExperienceForm({
 
         <TextareaForm label="Tasks" register={register("tasks")} />
         <div className="flex gap-2 pt-4 flex-row-reverse">
-          <Button disabled={!isValid}>
-            {type === FORM_TYPE.create ? "Add a new" : "Update your"} Experience
+          <Button disabled={!isValid || isSubmitting}>
+            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {type === FORM_TYPE.create ? "Add a new" : "Update your"} experience
           </Button>
           <Button variant="secondary" onClick={closeModal}>
             Cancel

@@ -13,6 +13,7 @@ import { FORM_TYPE, TForm } from "@/models/forms";
 import { addEducationAction, updateEducationAction } from "@/actions/education";
 import { useModal } from "@/hooks/useModal";
 import { EDUCATION_MODAL } from "./EducationModal";
+import { Loader2 } from "lucide-react";
 
 export default function EducationForm({
   type,
@@ -24,7 +25,7 @@ export default function EducationForm({
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { isValid, errors, isSubmitting },
   } = useForm<TEducation>({
     resolver: zodResolver(educationValidationSchema),
     mode: "onBlur",
@@ -93,8 +94,9 @@ export default function EducationForm({
         </div>
 
         <div className="flex gap-2 pt-4 flex-row-reverse">
-          <Button disabled={!isValid}>
-            {type === FORM_TYPE.create ? "Add a new" : "Update your"} Education
+          <Button disabled={!isValid || isSubmitting}>
+            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {type === FORM_TYPE.create ? "Add a new" : "Update your"} education
           </Button>
           <Button variant="secondary" onClick={closeModal}>
             Cancel
